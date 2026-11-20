@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090711">
+<title>STRENZO - Meet. Connect. Chat.</title>
+<meta name="description" content="Welcome to STRENZO. Meet new people, make friends and enjoy anonymous chatting.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ font-family:Inter,sans-serif;
+ background:#090711;
+ color:white;
+ overflow-x:hidden;
+}
+:root{--purple:#8b5cf6;--pink:#d946ef;--muted:#aaa3bd}
+header{
+ height:78px;padding:0 7%;
+ display:flex;align-items:center;justify-content:space-between;
+ background:#0d0a18;border-bottom:1px solid #292039;
+ position:sticky;top:0;z-index:10;
+}
+.logo{font-size:27px;font-weight:900;letter-spacing:2px}
+.logo span{color:#a78bfa}
+nav{display:flex;gap:30px}
+nav a{color:#ddd5ee;text-decoration:none;font-size:14px}
+nav a:hover{color:#b69aff}
+.menu{display:none;background:none;color:white;border:0;font-size:27px}
+.hero{
+ margin:45px auto;padding:65px 25px 55px;
+ max-width:1100px;width:90%;text-align:center;
+ border:1px solid #3b285d;border-radius:30px;
+ background:radial-gradient(ellipse at top,#302052 0%,#171126 48%,#100c1b 100%);
+ box-shadow:0 0 65px #7c3aed16;
+}
+.app-icon{
+ width:112px;height:112px;margin:0 auto 25px;
+ border-radius:29px;
+ display:grid;place-items:center;
+ font-size:65px;font-weight:900;
+ color:white;
+ background:linear-gradient(145deg,#a78bfa,#6d28d9 55%,#26104c);
+ border:1px solid #c4b5fd;
+ box-shadow:0 0 35px #8b5cf677;
+}
+.pill{
+ display:inline-block;padding:10px 20px;
+ border:1px solid #60458b;border-radius:30px;
+ color:#d8c7ff;background:#241737;
+ font-size:13px;margin-bottom:24px;
+}
+h1{font-size:clamp(35px,6vw,62px);line-height:1.13;font-weight:900}
+.gradient{
+ background:linear-gradient(90deg,#a78bfa,#e879f9);
+ -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p{
+ max-width:700px;margin:23px auto 30px;
+ color:#c3b9d5;font-size:17px;line-height:1.8;
+}
+.btn{
+ display:inline-block;padding:17px 35px;border-radius:14px;
+ color:white;text-decoration:none;font-weight:800;font-size:17px;
+ background:linear-gradient(100deg,#7c3aed,#c026d3);
+ box-shadow:0 8px 30px #9333ea44;
+ transition:.25s;
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 35px #9333ea77}
+.small{font-size:12px;color:#9d91b4;margin-top:15px}
+.section{max-width:1100px;width:90%;margin:85px auto;text-align:center}
+.section h2{font-size:34px;margin-bottom:13px}
+.section>p{color:var(--muted);line-height:1.7}
+.features{
+ display:grid;grid-template-columns:repeat(2,1fr);
+ gap:18px;margin-top:35px;text-align:left;
+}
+.feature{
+ padding:25px;border:1px solid #352747;border-radius:18px;
+ background:linear-gradient(140deg,#191326,#100d19);
+}
+.feature .emoji{font-size:28px;margin-bottom:15px}
+.feature h3{font-size:18px;margin-bottom:9px}
+.feature p{font-size:14px;color:#a9a0b9;line-height:1.6}
+.steps{
+ display:grid;grid-template-columns:repeat(2,1fr);
+ gap:15px;margin-top:35px;text-align:left;
+}
+.step{
+ padding:22px;border-radius:16px;background:#171222;
+ border:1px solid #38264f;display:flex;gap:17px;align-items:center;
+}
+.number{
+ min-width:42px;height:42px;border-radius:12px;
+ display:grid;place-items:center;
+ background:linear-gradient(135deg,#8b5cf6,#c026d3);
+ font-weight:900;
+}
+.step h3{font-size:15px;margin-bottom:5px}
+.step p{font-size:12px;color:#aaa0b8}
+.download-box{
+ padding:45px 20px;border:1px solid #593a83;
+ border-radius:24px;background:linear-gradient(120deg,#201333,#130e20);
+}
+.download-box h2{margin-bottom:12px}
+.download-box p{color:#b9adc9;margin-bottom:25px;line-height:1.7}
+footer{
+ border-top:1px solid #30233e;text-align:center;
+ padding:30px 15px;color:#9589a8;font-size:13px;line-height:2;
+}
+footer strong{color:#c4b5fd}
+@media(max-width:650px){
+ header{height:68px;padding:0 5%}
+ .logo{font-size:23px}
+ nav{
+  display:none;position:absolute;top:68px;left:0;width:100%;
+  padding:22px;background:#100c1b;flex-direction:column;gap:22px;
+  border-bottom:1px solid #352747;
+ }
+ nav.show{display:flex}
+ .menu{display:block}
+ .hero{margin:25px auto;padding:45px 18px;border-radius:22px}
+ .hero p{font-size:15px}
+ .features,.steps{grid-template-columns:1fr}
+ .section{margin:65px auto}
+ .section h2{font-size:28px}
+ .btn{font-size:15px;padding:16px 25px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+ <div class="logo">STREN<span>ZO</span></div>
+ <nav id="nav">
+  <a href="#home">Home</a>
+  <a href="#features">Features</a>
+  <a href="#install">Installation</a>
+  <a href="#about">About</a>
+ </nav>
+ <button class="menu" onclick="document.getElementById('nav').classList.toggle('show')">☰</button>
+</header>
+
+<main>
+<section class="hero" id="home">
+ <div class="app-icon">S</div>
+ <div class="pill">✦ Meet. Connect. Chat.</div>
+ <h1>Welcome to <span class="gradient">STRENZO</span></h1>
+ <p>
+  Discover new people, make meaningful connections and enjoy chatting.
+  Your next conversation is just one tap away.
+ </p>
+ <a class="btn" href="https://github.com/ujjwaldhama/stranger-connect-app/actions/workflows/build-apk.yml" target="_blank">
+  ↓ &nbsp; Download STRENZO APK
+ </a>
+ <div class="small">Android App • Latest Build on GitHub Actions</div>
+</section>
+
+<section class="section" id="features">
+ <h2>Why Choose <span class="gradient">STRENZO?</span></h2>
+ <p>Everything you need to connect and chat in one place.</p>
+
+ <div class="features">
+  <div class="feature">
+   <div class="emoji">🌍</div>
+   <h3>Find Strangers</h3>
+   <p>Meet new people and start interesting conversations.</p>
+  </div>
+  <div class="feature">
+   <div class="emoji">💬</div>
+   <h3>Live Chat</h3>
+   <p>Enjoy real-time conversations with your connections.</p>
+  </div>
+  <div class="feature">
+   <div class="emoji">👥</div>
+   <h3>Chat with Friends</h3>
+   <p>Connect with friends and continue your conversations.</p>
+  </div>
+  <div class="feature">
+   <div class="emoji">🔒</div>
+   <h3>Simple Experience</h3>
+   <p>Easy navigation and a clean chatting experience.</p>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="install">
+ <h2>Installation <span class="gradient">Guide</span></h2>
+ <p>Get started in four simple steps.</p>
+
+ <div class="steps">
+  <div class="step">
+   <div class="number">1</div>
+   <div><h3>Download APK</h3><p>Open the download page and download the APK artifact.</p></div>
+  </div>
+  <div class="step">
+   <div class="number">2</div>
+   <div><h3>Open Downloads</h3><p>Find the downloaded APK file on your phone.</p></div>
+  </div>
+  <div class="step">
+   <div class="number">3</div>
+   <div><h3>Allow Installation</h3><p>Allow installation from your browser if requested.</p></div>
+  </div>
+  <div class="step">
+   <div class="number">4</div>
+   <div><h3>Install & Open</h3><p>Install STRENZO and start connecting.</p></div>
+  </div>
+ </div>
+</section>
+
+<section class="section" id="about">
+ <div class="download-box">
+  <h2>Ready to <span class="gradient">Connect?</span></h2>
+  <p>Your next conversation is waiting.<br>Join STRENZO today!</p>
+  <a class="btn" href="https://github.com/ujjwaldhama/stranger-connect-app/actions/workflows/build-apk.yml" target="_blank">Download Now →</a>
+ </div>
+</section>
+</main>
+
+<footer>
+ <strong>STRENZO</strong> — Meet. Connect. Chat.<br>
+ Made for connections ❤️<br>
+ © 2026 STRENZO. All rights reserved.
+</footer>
+
+</body>
+</html>
